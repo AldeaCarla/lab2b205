@@ -49,4 +49,26 @@ public class SimpleChainedList {
         }
         System.out.println();
     }
+
+    public int sumNodes() {
+        int sum = 0;
+        SimpleChainedNode temp = head;
+        while (temp != null) {
+            sum += temp.getValue();
+            temp = temp.getNextNode();
+        }
+        return sum;
+    }
+
+    public boolean isSorted() {
+        if (head == null) return true;
+        SimpleChainedNode temp = head;
+        while (temp.getNextNode() != null) {
+            if (temp.getValue() > temp.getNextNode().getValue()) {
+                return false;
+            }
+            temp = temp.getNextNode();
+        }
+        return true;
+    }
 }
